@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,300,400,800");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+@import '../css/carousel.css';
+@import '../css/hover-min.css';
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  border-color: #1787fb;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  color: #1787fb;
+  padding: 4px 7px 4px 7px;
+  text-decoration: none;
+}
+a:hover {
+  background-color: #0058b5;
+  color: white;
+}
+
+h {
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+@media (max-width: 1200px) {
+  #msc {
+    font-size: 10px;
+  }
+
+  #boxContainer p {
+    font-size: 12px;
+  }
+
+  .textContainer {
+    width: 100%;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  h {
+    font-size: 18px;
+  }
+}
+@media (max-width: 530px) {
+  #intro {
+    margin-left: 33vw;
+  }
+
+  #iam {
+    font-size: 8vw;
+  }
+
+  #line {
+    padding: 2vw 0vw;
+  }
+
+  #cardContainer {
+    margin-top: 20vw;
+  }
+
+  .hvr-shrink.cards {
+    width: 90vw;
+    height: 30vw;
+  }
+
+  .break {
+    display: block;
+  }
+
+  .footerLinks {
+    font-size: 12px;
+  }
+
+  a {
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=responsive.css.map */
