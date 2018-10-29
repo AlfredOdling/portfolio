@@ -6,6 +6,7 @@
     "hover.css": "^2.2.1",
     "jquery": "^3.3.1",
     "lazygit": "^1.0.0",
+    "node-sass": "^4.9.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-responsive-carousel": "^3.1.33",
@@ -18,7 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "sass --watch src/styles/scss:src/styles/css"
   },
   "prettier": {
     "eslint.enable": true,
