@@ -316,6 +316,11 @@ p {
   height: 37%;
 }
 
+#loco {
+  width: 34%;
+  height: 34%;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -270,6 +270,47 @@ export const getContent = id => {
     )
   }
 
+  const loco = {
+    images: [
+      { src: require('../assets/images/locoApp/locoApp.png') },
+    ],
+    text: (
+      <div>
+        <h>LocoApp (2018)</h>
+        <p>
+          This is a small application built during a course called “Prototype development for mobile applications”. 
+          The goal of this course was to find a problem and build a product that solves that problem. 
+          The focus was on the process of product development; business requirements, UX, lo-fi and hi-fi prototyping. 
+          Our problem was that it sometimes is hard to remember the rules to party games so we wanted a solution for that. 
+          We wanted to build a complete application so we had a narrow scope on our product to just show information about 
+          party games with no further functionality.
+        </p>
+        <br />
+        <br />
+        <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://admiring-poincare-49bf29.netlify.com/"
+        >
+          Link to application
+        </a>
+        <div className="break">
+          <p>{'\n'}</p>
+          <br />
+        </div>
+        <a
+        rel="noopener noreferrer"
+        target="_blank"
+        href="https://github.com/AlfredOdling/LocoApp"
+        >
+        Project on Github
+      </a>
+      <br />
+      <br />
+      </div>
+    )
+  }
+
   const content = {
     badrumsboden,
     tremory,
@@ -279,6 +320,7 @@ export const getContent = id => {
     phocus,
     digiexam,
     koala,
+    loco,
   }
 
   return content[id]
@@ -286,6 +328,10 @@ export const getContent = id => {
 
 export const getCardImages = () => {
   return [
+    {
+      id: 'loco',
+      src: 'loco.svg'
+    },
     {
       id: 'koala',
       src: 'koala.png'
