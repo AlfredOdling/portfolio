@@ -54,6 +54,15 @@ p {
   }
 }
 @media (max-width: 530px) {
+  #cardContainer {
+    grid-template-columns: auto;
+  }
+
+  .hvr-shrink.cards {
+    width: 87.6vw;
+    height: 35vw;
+  }
+
   #intro {
     margin-left: 33vw;
   }
@@ -64,15 +73,6 @@ p {
 
   #line {
     padding: 2vw 0vw;
-  }
-
-  #cardContainer {
-    margin-top: 20vw;
-  }
-
-  .hvr-shrink.cards {
-    width: 90vw;
-    height: 30vw;
   }
 
   .break {

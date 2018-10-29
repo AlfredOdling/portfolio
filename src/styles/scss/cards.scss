@@ -1,20 +1,20 @@
 @import 'base.scss';
 
 #cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 14vw;
-  margin: 5vw;
   border-radius: 2px;
+  display: grid;
+  justify-content: center;
+  justify-items: flex-start;
+  grid-template-columns: auto auto;
+  align-content: flex-start;
+  grid-gap: 2.5vw;
+  margin: 6vw 0 6vw 0;
 }
 
 .hvr-shrink.cards {
   @extend %box-shadow;
   width: 42.6vw;
   height: 20vw;
-  margin-left: 1.2vw;
-  margin-right: 1.2vw;
-  margin-bottom: 2.4vw;
   display: flex;
   align-items: center;
   justify-content: center;
