@@ -8,7 +8,7 @@ export default class Footer extends React.Component {
         className="footerLinks"
         rel="noopener noreferrer"
         target="_blank"
-        href="mailto:alfred.odling@hotmail.se"
+        href="mailto:alfredodling@gmail.com"
         >
         Email
         </a>
