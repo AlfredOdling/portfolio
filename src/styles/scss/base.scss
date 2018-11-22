@@ -1,70 +1,221 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,800');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,900');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 @import '../css/carousel.css';
 @import '../css/hover-min.css';
+
+$font-family: 'Avenir', sans-serif;
+$white: rgb(255, 255, 255);
+$white-ish: rgb(229, 255, 157);
+$red: rgb(208, 2, 27);
 
 * {
   margin: 0;
   padding: 0;
+  font-family: $font-family;
+  filter: brightness(120%);
 }
 
-$font-family: 'Montserrat', sans-serif;
-$font-family2: 'Open Sans', sans-serif;
+h1 {
+  left: 20px;
+  font-weight: 900;
+  color: $white;
+  font-size: 60px;
+  letter-spacing: 3.18px;
+  line-height: 1.15;
+}
 
-$light-black: rgb(49, 49, 49);
-$light-black: rgb(49, 49, 49);
-$nice-blue: rgb(23, 135, 251);
-$nice-blue-dark: rgb(0, 88, 181);
-$white: rgb(255, 255, 255);
+h2 {
+  position: absolute;
+  top: -30px;
+  font-weight: 900;
+  color: $red;
+  font-size: 40px;
+  letter-spacing: 3.18px;
+  text-shadow: 0 7px 7px rgba(0,0,0,0.50);
+}
 
-%flex-center {
+p, a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 900;
+  color: $white;
+  letter-spacing: 1.14px;
+}
+
+a:hover {
+  color: $white-ish;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-%flex-center-row {
+#home {
+  position: relative;
+  background-image: linear-gradient(-171deg, #050034 9%, #21002C 51%, #B60202 100%, #FFFFFF 100%);
+  padding: 10%;
+}
+
+.innerContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  width: 90%;
+
+  & .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    width: 80vh;
+    height: 40vh;
+    padding: 80px;
+    background-image: linear-gradient(-135deg, #0D0749 0%, #03032A 100%);
+    box-shadow: 0 7px 7px 0 rgba(0,0,0,0.50);
+    
+    &.animated {
+      animation: fade-in 2s ease;
+
+      @keyframes fade-in {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+      }
+    }
+
+    & .myName {
+      flex-direction: row;
+    }
+
+    & .text {
+      width: 55%;
+      // text-align: end;
+      display: flex;
+      flex-direction: column;
+
+      &.small p {
+        font-size: 12px;
+      }
+    }
+
+    & .pickSkill {
+      text-align: end;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 180px;
+      opacity: 0.25;
+      right: 0;
+
+      & .skill.checked p {
+        color: $red;
+      }
+    }
+  }
+  
+  & .menuBox {
+    align-self: flex-start;
+    // opacity: 0.25;
+
+    & .menuRow {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 7px;
+
+      & p {
+        text-align: right;
+      }
+
+      & .checkBox {
+        margin-left: 15px;
+        width: 15px;
+        height: 15px;
+        border: 3px solid $red;
+
+        &.checked {
+          background-image: linear-gradient(-180deg, #F5515F 0%, #9F041B 100%);
+        }
+      }
+    }
+  }
 }
 
-%box-shadow {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-}
+#projects {
+  padding: 10%;
+  background-image: linear-gradient(-135deg, #0D0749 0%, #03032A 100%);
 
-%link-a {
-  font-family: $font-family;
-  font-size: 16px;
-  font-weight: 400;
-  border-color: $nice-blue;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 2px;
-  color: $nice-blue;
-  padding: 4px 7px 4px 7px;
-  text-decoration: none;
+  .menuRow {
+    opacity: 0.2;
 
-  &link {
-    font-weight: 300;
+    &.checked {
+      opacity: 1;
+    }
   }
 
-  &:hover {
-    background-color: $nice-blue-dark;
-    color: $white;
+  .box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  & h3 {
+    font-size: 29px;
+    color: $red;
   }
 }
 
-a {
-  @extend %link-a;
+#koalaLogo {
+  width: 250px;
 }
 
-h {
-  font-family: $font-family;
+#locoLogo {
+  width: 250px;
+
 }
 
-p {
-  font-family: $font-family2;
+#hikikomoriLogo {
+  width: 250px;
+
+}
+
+#freshcoastLogo {
+  width: 250px;
+
+}
+
+#digiexamLogo {
+  width: 250px;
+
+}
+
+#tremoryLogo {
+  width: 250px;
+
+}
+
+#phocusLogo {
+  width: 250px;
+
+}
+
+#badrumsbodenLogo {
+  width: 250px;
+
+}
+
+#cinnoberLogo {
+
+  width: 250px;
+}
+
+.svgLogo {
+  position: absolute;
+  top: -60px;
+  right: 80px;
 }
