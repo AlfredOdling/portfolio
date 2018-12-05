@@ -3,18 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "hover.css": "^2.2.1",
+    "hover.css": "^2.3.2",
     "jquery": "^3.3.1",
     "lazygit": "^1.0.0",
     "node-sass": "^4.9.4",
     "react": "^16.2.0",
+    "react-device-detect": "^1.6.1",
     "react-dom": "^16.2.0",
+    "react-image-gallery": "^0.8.12",
     "react-mt-svg-lines": "^0.9.0",
     "react-responsive-carousel": "^3.1.33",
     "react-scripts": "1.1.1",
+    "react-scroll-horizontal": "^1.5.1",
     "react-slick": "^0.18.0",
+    "react-svgpathplayer": "^2.0.3",
+    "react-transition-group": "^1.2.1",
+    "react-vivus": "0.0.2",
     "sass": "^1.14.3",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "vivus": "^0.4.4"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,65 +1,127 @@
 @import 'base.scss';
 
-@media (max-width: 1200px) {
-  #msc {
-    font-size: 10px;
-  }
-  #boxContainer p {
-    font-size: 12px;
-  }
-  .textContainer {
-    width: 100%;
-  }
+@media (max-width: 320px) {
+   .back {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
 
-  button {
-    font-size: 12px;
-  }
-  h {
-    font-size: 18px;
-  }
+   .container {
+      height: 100%;
+   }
+
+   #toggleButton {
+      background-color: #050034;
+      position: unset;
+      width: 100vw !important;
+      height: 100% !important;
+      right: unset;
+      text-align: center;
+      padding: 5vw 0 5vw 0;
+   }
+
+   .innerContainer {
+      padding: 5vh 5vw 0vh 5vw;
+      height: 100%;
+
+      & .pickSkill {
+         margin-top: 5vw;
+      }
+   }
 }
 
  @media (max-width: 530px) {
-  #cardContainer {
-    grid-template-columns: auto;
-  }
+    #freshcoastLogo {
+      top: -80px;
+      transform: scale(0.7);
+    }
 
-  .hvr-shrink.cards {
-    width: 87.6vw;
-    height: 35vw;
-  }
+    #tremoryLogo {
+      top: -65px;
+      transform: scale(0.7);
+    }
 
-  #intro {
-    margin-left: 33vw;
-  }
+    #phocusLogo {
+      transform: scale(0.8);
+      // right: -7px;
+    }
 
-  #iam {
-    font-size: 8vw;
-  }
+    #badrumsboden {
+      transform: scale(1);
+    }
 
-  #line {
-    padding: 2vw 0vw;
-  }
+    #cinnober
 
-  // #cardContainer {
-  //   margin-top: 20vw;
-  // }
+   #toggleButton {
+      width: unset;
+      height: unset;
+      bottom: 7vh;
+      right: 10vw;
 
-  //  .hvr-shrink.cards {
-  //   width: 90vw;
-  //   height: 30vw;
-  //  }
-
-   .break {
-     display: block;
+      & p:hover {
+         color: $white;
+      }
    }
 
-   .footerLinks {
-    font-size: 12px;
-  }
+   .innerContainer {
+      flex-direction: column;
+      justify-content: unset;
 
-  a {
-    font-size: 12px;
-  }
+      & #whatIDo {
+         align-items: unset;
+       }
+
+      & .text, .text.small {
+         margin-top: 20vw;
+      }
+
+      & #contacts .text {
+         margin-top: 30vw;
+      }
+
+      & .menuBox {
+         margin: 10vw 3vw 0 0;
+         align-self: flex-end;
+         opacity: 1;
+      }
+
+      & .box {
+         margin-top: 15vw;
+         border: 4px solid transparent;
+         border-image: linear-gradient(-135deg, #2818C3 0%, #0A0A77 100%);
+         border-image-slice: 1;
+         margin-top: 40px;
+         width: 65vw;
+         height: unset;
+         padding: 10vw;
+ 
+         & .svgLogo {
+           right: 0;
+           transform: scale(0.8);
+         }
+
+         &#whatIDo {
+            flex-direction: column-reverse !important;
+         }
+
+         & .text {
+            width: 100%;
+            // text-align: end;
+            display: flex;
+            flex-direction: column;
+          }
+
+          & .pickSkill {
+            // height: 10vh;
+            height: unset;
+
+            & .skill {
+              margin-top: 0px;
+          }
+         }
+      }
+   }
  }
  

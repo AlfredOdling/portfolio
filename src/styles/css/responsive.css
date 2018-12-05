@@ -5,7 +5,11 @@
   margin: 0;
   padding: 0;
   font-family: "Avenir", sans-serif;
-  filter: brightness(120%);
+  filter: brightness(100%);
+}
+
+svg {
+  filter: drop-shadow(3px 3px 3px #d0021b);
 }
 
 h1 {
@@ -27,12 +31,41 @@ h2 {
   text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
 }
 
-p, a {
-  text-decoration: none;
+h4 {
+  color: #00bcd4;
+  font-size: 18px;
+  text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+}
+h4:hover {
+  opacity: 0.75;
+}
+h4:active {
+  transform: scale(0.9, 0.9);
+  transition-duration: 0.2s;
+}
+
+p {
   font-size: 18px;
   font-weight: 900;
   color: white;
   letter-spacing: 1.14px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 900;
+  color: #00bcd4;
+  letter-spacing: 1.14px;
+  text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+}
+
+#contacts a {
+  font-size: 18px;
+  color: white;
+}
+#contacts a:hover {
+  color: #d0021b;
 }
 
 a:hover {
@@ -40,6 +73,7 @@ a:hover {
 }
 
 .container {
+  position: relative;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -47,10 +81,8 @@ a:hover {
   align-items: center;
 }
 
-#home {
-  position: relative;
-  background-image: linear-gradient(-171deg, #050034 9%, #21002C 51%, #B60202 100%, #FFFFFF 100%);
-  padding: 10%;
+.text.small p {
+  font-size: 12px;
 }
 
 .innerContainer {
@@ -58,19 +90,20 @@ a:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  padding: 5vh 5vw 5vh 5vw;
+  width: 90vw;
+  height: 90vh;
 }
 .innerContainer .box {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
   position: relative;
   width: 80vh;
   height: 40vh;
   padding: 80px;
-  background-image: linear-gradient(-135deg, #0D0749 0%, #03032A 100%);
+  background-image: linear-gradient(120deg, #0D0749 0%, #03032A 100%);
   box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 4vw;
 }
 .innerContainer .box.animated {
   animation: fade-in 2s ease;
@@ -87,24 +120,29 @@ a:hover {
   flex-direction: row;
 }
 .innerContainer .box .text {
-  width: 55%;
+  width: 70%;
   display: flex;
   flex-direction: column;
-}
-.innerContainer .box .text.small p {
-  font-size: 12px;
 }
 .innerContainer .box .pickSkill {
   text-align: end;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 180px;
-  opacity: 0.25;
-  right: 0;
+  text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+}
+.innerContainer .box .pickSkill .skill {
+  margin-top: 20px;
+  cursor: pointer;
+}
+.innerContainer .box .pickSkill .skill p {
+  color: #00bcd4;
+  opacity: 0.2;
 }
 .innerContainer .box .pickSkill .skill.checked p {
   color: #d0021b;
+  opacity: 1;
 }
 .innerContainer .menuBox {
   align-self: flex-start;
@@ -115,6 +153,8 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 7px;
+  text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 .innerContainer .menuBox .menuRow p {
   text-align: right;
@@ -129,15 +169,58 @@ a:hover {
   background-image: linear-gradient(-180deg, #F5515F 0%, #9F041B 100%);
 }
 
+#home {
+  background-image: linear-gradient(-171deg, #050034 9%, #21002C 51%, #B60202 100%, #FFFFFF 100%);
+  position: relative;
+  overflow: hidden;
+}
+#home.innerContainer .box#intro {
+  flex-direction: column;
+  align-items: flex-start;
+}
+#home.innerContainer .box#whatIDo {
+  flex-direction: row;
+  align-items: flex-end;
+}
+#home.innerContainer .box#contacts {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 #projects {
-  padding: 10%;
   background-image: linear-gradient(-135deg, #0D0749 0%, #03032A 100%);
+  height: 100vh;
+}
+#projects a {
+  margin-top: 5px;
+}
+#projects .menuBox {
+  align-self: center;
+}
+#projects .menuBox h3 {
+  color: #d0021b;
+  font-size: 30px;
+}
+#projects.innerContainer .box {
+  justify-content: flex-end;
 }
 #projects .menuRow {
   opacity: 0.2;
 }
+#projects .menuRow h3 {
+  color: #00bcd4;
+}
+#projects .menuRow:hover {
+  opacity: 0.75;
+}
 #projects .menuRow.checked {
   opacity: 1;
+  transition-duration: 0.3s;
+}
+#projects .menuRow.checked h3 {
+  color: #00bcd4;
+  color: #d0021b;
+  transition-duration: 0.2s;
 }
 #projects .box {
   flex-direction: column;
@@ -148,101 +231,197 @@ a:hover {
   color: #d0021b;
 }
 
-#koalaLogo {
-  width: 250px;
+#koalaLogo, #locoLogo, #tremoryLogo {
+  top: -60px;
 }
 
-#locoLogo {
-  width: 250px;
-}
-
-#hikikomoriLogo {
-  width: 250px;
+#hikikomoriLogo, #cinnoberLogo {
+  top: -25px;
 }
 
 #freshcoastLogo {
-  width: 250px;
+  top: -90px;
 }
 
 #digiexamLogo {
-  width: 250px;
-}
-
-#tremoryLogo {
-  width: 250px;
+  top: -70px;
 }
 
 #phocusLogo {
-  width: 250px;
+  top: -40px;
 }
 
 #badrumsbodenLogo {
-  width: 250px;
-}
-
-#cinnoberLogo {
-  width: 250px;
+  top: -85px;
 }
 
 .svgLogo {
   position: absolute;
-  top: -60px;
-  right: 80px;
+  right: 30px;
 }
 
-@media (max-width: 1200px) {
-  #msc {
-    font-size: 10px;
+#toggleButton {
+  position: absolute;
+  z-index: 10;
+  bottom: 3vw;
+  right: 5vw;
+  text-shadow: 0 7px 7px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+#toggleButton p:hover {
+  color: #d0021b;
+}
+
+#projects #mobile-arrows-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#projects #mobile-arrows-container #mobile-arrows {
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#projects #mobile-arrows-container #mobile-arrows p {
+  font-size: 25px;
+  margin: 4vw;
+}
+
+#mobileContainer {
+  background-image: linear-gradient(-171deg, #050034 9%, #21002C 51%, #B60202 100%, #FFFFFF 100%);
+  padding: 7vw;
+  box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.5);
+}
+#mobileContainer .square {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 14vw 7vw 7vw 7vw;
+  border: 4px solid transparent;
+  border-image: linear-gradient(-135deg, #2818C3 0%, #0A0A77 100%);
+  border-image-slice: 1;
+  margin-top: 5vw;
+}
+#mobileContainer .square ~ .square {
+  margin-top: 20vw;
+}
+#mobileContainer .square#contacts {
+  padding-top: 30vw;
+}
+#mobileContainer .square#intro .text {
+  margin-top: 15vw;
+}
+#mobileContainer .square a, #mobileContainer .square a:hover {
+  opacity: 1;
+  color: white;
+}
+
+@media (max-width: 320px) {
+  .back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  #boxContainer p {
-    font-size: 12px;
+  .container {
+    height: 100%;
   }
 
-  .textContainer {
-    width: 100%;
+  #toggleButton {
+    background-color: #050034;
+    position: unset;
+    width: 100vw !important;
+    height: 100% !important;
+    right: unset;
+    text-align: center;
+    padding: 5vw 0 5vw 0;
   }
 
-  button {
-    font-size: 12px;
+  .innerContainer {
+    padding: 5vh 5vw 0vh 5vw;
+    height: 100%;
   }
-
-  h {
-    font-size: 18px;
+  .innerContainer .pickSkill {
+    margin-top: 5vw;
   }
 }
 @media (max-width: 530px) {
-  #cardContainer {
-    grid-template-columns: auto;
+  #freshcoastLogo {
+    top: -80px;
+    transform: scale(0.7);
   }
 
-  .hvr-shrink.cards {
-    width: 87.6vw;
-    height: 35vw;
+  #tremoryLogo {
+    top: -65px;
+    transform: scale(0.7);
   }
 
-  #intro {
-    margin-left: 33vw;
+  #phocusLogo {
+    transform: scale(0.8);
   }
 
-  #iam {
-    font-size: 8vw;
+  #badrumsboden {
+    transform: scale(1);
   }
 
-  #line {
-    padding: 2vw 0vw;
+  #cinnober #toggleButton {
+    width: unset;
+    height: unset;
+    bottom: 7vh;
+    right: 10vw;
+  }
+  #cinnober #toggleButton p:hover {
+    color: white;
   }
 
-  .break {
-    display: block;
+  .innerContainer {
+    flex-direction: column;
+    justify-content: unset;
   }
-
-  .footerLinks {
-    font-size: 12px;
+  .innerContainer #whatIDo {
+    align-items: unset;
   }
-
-  a {
-    font-size: 12px;
+  .innerContainer .text, .innerContainer .text.small {
+    margin-top: 20vw;
+  }
+  .innerContainer #contacts .text {
+    margin-top: 30vw;
+  }
+  .innerContainer .menuBox {
+    margin: 10vw 3vw 0 0;
+    align-self: flex-end;
+    opacity: 1;
+  }
+  .innerContainer .box {
+    margin-top: 15vw;
+    border: 4px solid transparent;
+    border-image: linear-gradient(-135deg, #2818C3 0%, #0A0A77 100%);
+    border-image-slice: 1;
+    margin-top: 40px;
+    width: 65vw;
+    height: unset;
+    padding: 10vw;
+  }
+  .innerContainer .box .svgLogo {
+    right: 0;
+    transform: scale(0.8);
+  }
+  .innerContainer .box#whatIDo {
+    flex-direction: column-reverse !important;
+  }
+  .innerContainer .box .text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .innerContainer .box .pickSkill {
+    height: unset;
+  }
+  .innerContainer .box .pickSkill .skill {
+    margin-top: 0px;
   }
 }
 

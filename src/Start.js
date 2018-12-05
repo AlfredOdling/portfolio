@@ -1,6 +1,7 @@
 import './styles/css/app.css'
 import React from 'react'
-import { Intro, Contacts, WhatIDo, MenuBox } from './Stateless'
+import { Intro, Contacts, WhatIDo } from './StartComponents'
+import MenuBox from './MenuBox'
 const $ = require('jquery')
 
 export default class Start extends React.Component {
@@ -9,17 +10,36 @@ export default class Start extends React.Component {
 
     this.state = {
       contentItemID: 'intro',
-      menuItemID: 'fullstack',
     }
   }
 
   componentDidMount() {
     this.toggleContent('intro')
-    this.toggleMenu('fullstack')
+    this.calculateMouseDistance()
+  }
+
+  calculateMouseDistance = () => {
+    let { mX, mY } = 0
+    let $element = $('#start')
+
+    function calculateDistance(elem, mouseX, mouseY) {
+      return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem.width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem.height() / 2)), 2)))
+    }
+
+    $(document).mousemove(e => {
+      mX = e.pageX
+      mY = e.pageY
+      let distance = calculateDistance($element, mX, mY)
+      let ratio = (1 + Math.log(1 - (distance / window.innerWidth)))
+
+      let opacity = ratio < 0.15 ? 0.15 : ratio
+
+      $("#start").animate({ opacity }, 0)
+    })
   }
 
   toggleContent = contentItemID => {
-    this.animateBox()
+    // this.animateBox()
     this.setState(prevState => {
       if (contentItemID) {
         $('#' + prevState.contentItemID + ' .checkBox').removeClass('checked')
@@ -32,46 +52,22 @@ export default class Start extends React.Component {
     })
   }
 
-  toggleMenu = menuItemID => {
-    this.setState(prevState => {
-      if (menuItemID) {
-        $('#' + prevState.menuItemID + '.skill').removeClass('checked')
-      }
-      $('#' + menuItemID + '.skill').addClass('checked')
-
-      return {
-        menuItemID,
-      }
-    })
-  }
-
   showContent = () => {
-    const { contentItemID, menuItemID } = this.state
+    const { contentItemID } = this.state
 
     let component =
       contentItemID === 'intro' ? < Intro />
-        : contentItemID === 'whatIdo' ? < WhatIDo toggleMenu={this.toggleMenu} menuItemID={menuItemID} />
-          : contentItemID === 'contacts' ? <Contacts />
-            : ''
+      : contentItemID === 'whatIdo' ? < WhatIDo />
+      : contentItemID === 'contacts' ? <Contacts />
+      : ''
 
     return component
   }
 
-  animateBox = () => {
-    // $('.box').removeClass('animated')
-
-    // $('.box').addClass('animated')
-    $(".box").animate({ opacity: '0.25' }, 0);
-    $(".box").animate({ opacity: '1' }, 750);
-
-  }
-
   render() {
-    // https://github.com/chenglou/react-motion
     return (
       <div id='home' className='innerContainer'>
-          {this.showContent()}
-
+        {this.showContent()}
         <MenuBox toggleContent={this.toggleContent} />
       </div>
     )
