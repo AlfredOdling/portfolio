@@ -4,15 +4,15 @@
   "private": true,
   "dependencies": {
     "hover.css": "^2.2.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "lazygit": "^1.0.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.13.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-responsive-carousel": "^3.1.33",
-    "react-scripts": "1.1.1",
+    "react-scripts": "^3.2.0",
     "react-slick": "^0.18.0",
-    "sass": "^1.14.3",
+    "sass": "^1.23.7",
     "slick-carousel": "^1.8.1"
   },
   "scripts": {
@@ -34,5 +34,17 @@
     },
     "singleQuote": true,
     "semi": false
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

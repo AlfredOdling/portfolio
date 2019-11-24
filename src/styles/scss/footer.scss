@@ -1,11 +1,11 @@
 @import 'base.scss';
 
 #footer {
-   @extend %flex-center-row;
-   display: flex;
-   margin-bottom: 6vw;
- }
- 
+  @extend %flex-center-row;
+  display: flex;
+  padding: 6vw !important;
+}
+
 .footerLinks {
   @extend %link-a;
   margin: 0 5px 0 5px;

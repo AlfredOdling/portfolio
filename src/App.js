@@ -1,62 +1,43 @@
-import './styles/css/app.css'
 import React from 'react'
-import Cards from './Cards'
-import IntroSection from './IntroSection';
-import Footer from './Footer';
-import CardContent from './CardContent';
-const $ = require('jquery')
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props)
+const App = () => (
+  <div style={{ margin: '10vw' }} id="footer">
+    <a
+      className="footerLinks"
+      rel="noopener noreferrer"
+      target="_blank"
+      href="mailto:alfredodling@gmail.com"
+    >
+      Email
+    </a>
 
-    this.state = {
-      showContent: false,
-      expanded: false,
-      contentId: '',
-    }
-  }
+    <a
+      className="footerLinks"
+      rel="noopener noreferrer"
+      target="_blank"
+      href="https://github.com/AlfredOdling"
+    >
+      Github
+    </a>
 
-  toggleContent = (contentId, back) => {
-    if (back) {
-      $(document).ready(function () {
-        $('html, body').animate({
-          scrollTop: $('div#'+contentId+'_').offset().top - 65
-        }, 200)
-      })
-    } else {
-      $(document).ready(function () {
-        $('html, body').animate({
-          scrollTop: $('div.moreInfoContainer').offset().top - 65
-        }, 200)
-      })
-    }
+    <a
+      className="footerLinks"
+      rel="noopener noreferrer"
+      target="_blank"
+      href="https://www.linkedin.com/in/alfredodling/"
+    >
+      LinkedIn
+    </a>
 
-    this.setState(prevState => {
-      return {
-        showContent: !prevState.showContent,
-        expanded: !prevState.expanded,
-        contentId,
-      }
-    })
-  }
+    <a
+      className="footerLinks"
+      rel="noopener noreferrer"
+      target="_blank"
+      href="https://www.goodreads.com/review/list/63594929-alfred-dling?shelf=%23ALL%23&view=covers"
+    >
+      Bookshelf
+    </a>
+  </div>
+)
 
-  render() {
-    const { showContent, contentId } = this.state
-
-    return (
-      <div>
-        {
-          showContent ?
-          <CardContent toggleContent={this.toggleContent} id={contentId} />
-          :
-          <div>
-           <IntroSection />
-            <Cards toggleContent={this.toggleContent} />
-            <Footer />
-          </div>
-        }
-      </div>
-    )
-  }
-}
+export default App
