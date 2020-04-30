@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "hover.css": "^2.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lazygit": "^1.0.0",
     "node-sass": "^4.13.0",
     "react": "^16.2.0",
